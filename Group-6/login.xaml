@@ -5,8 +5,20 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Group_6"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Admin Login - Student Management System" Height="450" Width="800" Background="DarkCyan">
     <Grid>
+        <TextBlock HorizontalAlignment="Center" Margin="0,44,0,0" TextWrapping="Wrap" Text="Student Management System Login" VerticalAlignment="Top" Height="72" Width="760" TextAlignment="Center" FontSize="48" Foreground="White"/>
+        <Grid HorizontalAlignment="Center" Height="34" Margin="0,168,0,0" VerticalAlignment="Top" Width="416">
+            <TextBox HorizontalAlignment="Left" Margin="109,0,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="306" Height="27" FontSize="18"/>
+            <Label Content="Username" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="18" Foreground="White"/>
+
+        </Grid>
+        <Button Content="Login" HorizontalAlignment="Center" Margin="0,313,0,0" VerticalAlignment="Top" Height="42" Width="160" FontSize="20"/>
+        <Grid HorizontalAlignment="Center" Height="34" Margin="0,242,0,0" VerticalAlignment="Top" Width="416">
+            <TextBox HorizontalAlignment="Left" Margin="109,0,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="306" Height="27" FontSize="18"/>
+            <Label Content="Password" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="18" Foreground="White"/>
+
+        </Grid>
 
     </Grid>
 </Window>
