@@ -1,0 +1,24 @@
+﻿<Window x:Class="Group_6.Login"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Group_6"
+        mc:Ignorable="d"
+        Title="Admin Login - Student Management System" Height="450" Width="800" Background="DarkCyan">
+    <Grid>
+        <TextBlock HorizontalAlignment="Center" Margin="0,44,0,0" TextWrapping="Wrap" Text="Student Management System Login" VerticalAlignment="Top" Height="72" Width="760" TextAlignment="Center" FontSize="48" Foreground="White"/>
+        <Grid HorizontalAlignment="Center" Height="34" Margin="0,168,0,0" VerticalAlignment="Top" Width="416">
+            <TextBox Name="email" HorizontalAlignment="Left" Margin="109,0,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="306" Height="27" FontSize="18"/>
+            <Label Content="Email ID" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="18" Foreground="White"/>
+
+        </Grid>
+        <Grid HorizontalAlignment="Center" Height="34" Margin="0,242,0,0" VerticalAlignment="Top" Width="416">
+            <PasswordBox Name="password" HorizontalAlignment="Left" Margin="109,0,0,0" VerticalAlignment="Center" Width="306" Height="27" FontSize="18"/>
+            <Label Content="Password" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="18" Foreground="White"/>
+        </Grid>
+        <Button Name="loginButton" Click="loginClicked" Content="Login" HorizontalAlignment="Center" Margin="0,313,0,0" VerticalAlignment="Top" Height="42" Width="160" FontSize="20"/>
+        <TextBlock HorizontalAlignment="Center" Margin="0,376,0,0" TextWrapping="Wrap" OpacityMask="Crimson" x:Name="errormessage" VerticalAlignment="Top" Foreground="#FFFF5959" FontSize="14" Width="652" TextAlignment="Center"/>
+        <TextBlock HorizontalAlignment="Center" Margin="0,121,0,0" TextWrapping="Wrap" Text="If you don't have the credentials, please contact the admin team at admin@group6.com" VerticalAlignment="Top" FontSize="14" Foreground="#FFFBE9E9"/>
+    </Grid>
+</Window>
