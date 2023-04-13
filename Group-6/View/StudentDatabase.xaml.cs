@@ -36,7 +36,7 @@ namespace Group_6
             bobSmith.address = "101 Waterloo Ave.";
             bobSmith.phoneNumber = "123-123-1234";
             bobSmith.email = "bobsmith@gmail.com";
-            StudentDatabase.Items.Add(bobSmith);
+            StudentDatabaseGrid.Items.Add(bobSmith);
 
 
 
@@ -46,7 +46,7 @@ namespace Group_6
             taylorSwift.address = "324 Erb Street";
             taylorSwift.phoneNumber = "123-421-1234";
             taylorSwift.email = "Swift@gmail.com";
-            StudentDatabase.Items.Add(taylorSwift);
+            StudentDatabaseGrid.Items.Add(taylorSwift);
 
 
             Student michealEarth = new Student();
@@ -55,7 +55,7 @@ namespace Group_6
             michealEarth.address = "123 University Ave.";
             michealEarth.phoneNumber = "123-123-4321";
             michealEarth.email = "Mearth@gmail.com";
-            StudentDatabase.Items.Add(michealEarth);
+            StudentDatabaseGrid.Items.Add(michealEarth);
 
 
             Student janeDoe = new Student();
@@ -64,7 +64,7 @@ namespace Group_6
             janeDoe.address = "350 Waterloo Ave.";
             janeDoe.phoneNumber = "321-167-1234";
             janeDoe.email = "janeDoe@gmail.com";
-            StudentDatabase.Items.Add(janeDoe);
+            StudentDatabaseGrid.Items.Add(janeDoe);
         }
 
         public class Student
@@ -111,7 +111,7 @@ namespace Group_6
                     }
                 }
             }
-            StudentDatabase.ItemsSource = search.ToList();
+            StudentDatabaseGrid.ItemsSource = search.ToList();
         }
     }
 }

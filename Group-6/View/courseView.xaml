@@ -1,11 +1,11 @@
-﻿<Window x:Class="Group_6.StudentDatabase"
+﻿<Window x:Class="Group_6.CourseDetails"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Group_6"
         mc:Ignorable="d" FontSize="14" FontFamily="Bookman Old Style"
-        Title="StudentDatabase" Height="450" Width="950"  Background="DarkCyan">
+        Title="CourseDatabase" Height="450" Width="1030"  Background="DarkCyan">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="20"/>
@@ -30,16 +30,16 @@
             <RowDefinition Height="20"/>
         </Grid.RowDefinitions>
         <TextBlock Grid.Column="2" Grid.Row="1" FontSize="32"
-                   FontWeight="Bold" Text="Student Database" Grid.ColumnSpan="3"
+                   FontWeight="Bold" Text="Course Database" Grid.ColumnSpan="3"
                    Margin="0,0,0,20" Foreground="White"/>
 
         <TextBlock Grid.Column="1" Grid.Row="4"
-                   Text="Search By Student Name:" Margin="10" VerticalAlignment="Bottom" FontSize="16" FontWeight="Bold" Foreground="white"/>
-        <TextBox x:Name="student_Search" Grid.Column="2" Grid.Row="4"
-                Width="150" Margin="-100,10,10,0" FontSize="16" FontWeight="Bold" TextChanged="StudentSearch"/>
-        <Button x:Name="Student_AddBtn" Content="Add a New Student" Grid.Column="5"
-                Grid.Row="4" FontSize="16" FontWeight="Bold" Margin="20,10,10,5" Click="Student_Add_btn"/>
-        <DataGrid x:Name="StudentDatabase"  Grid.Column="1" Grid.Row="7" d:ItemsSource="{d:SampleData ItemCount=5}" Grid.ColumnSpan="5" Margin="10,31,10,30">
+                   Text="Search By Course Name:" Margin="10" VerticalAlignment="Bottom" FontSize="16" FontWeight="Bold" Foreground="white"/>
+        <TextBox x:Name="course_Search" Grid.Column="2" Grid.Row="4"
+                Width="150" Margin="-100,10,10,0" FontSize="16" FontWeight="Bold" TextChanged="CourseSearch"/>
+        <Button x:Name="Course_AddBtn" Content="Add a New Course" Grid.Column="5"
+                Grid.Row="4" FontSize="16" FontWeight="Bold" Margin="20,10,10,5" Click="Course_Add_btn"/>
+        <DataGrid x:Name="CourseDatabase"  Grid.Column="1" Grid.Row="7" d:ItemsSource="{d:SampleData ItemCount=5}" Grid.ColumnSpan="5" Margin="10,31,10,30">
 
             <!-- Font Colour / Style of Headings-->
             <DataGrid.Resources>
@@ -54,11 +54,11 @@
 
             <!-- Colum Header Text & Bindings-->
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Student ID"  Binding="{Binding studentId}" Width="90"/>
-                <DataGridTextColumn Header="Full Name" Binding="{Binding fullName}" Width="150"/>
-                <DataGridTextColumn Header="Address"  Binding="{Binding address}"  Width="200"/>
-                <DataGridTextColumn Header="PhoneNumber" Binding="{Binding phoneNumber}"  Width="150"/>
-                <DataGridTextColumn Header="Email" Binding="{Binding email}"  Width="200"/>
+                <DataGridTextColumn Header="Course ID"  Binding="{Binding courseId}" Width="90"/>
+                <DataGridTextColumn Header="Course Name" Binding="{Binding courseName}" Width="150"/>
+                <DataGridTextColumn Header="Description"  Binding="{Binding courseDescription}"  Width="200"/>
+                <DataGridTextColumn Header="Duration" Binding="{Binding courseDuration}"  Width="150"/>
+                <DataGridTextColumn Header="Course Email" Binding="{Binding courseEmail}"  Width="200"/>
 
                 <DataGridTemplateColumn Header="Edit" Width="100">
                     <DataGridTemplateColumn.CellTemplate>

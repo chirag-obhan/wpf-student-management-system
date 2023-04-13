@@ -19,20 +19,20 @@ namespace Group_6.View
     /// <summary>
     /// Interaction logic for Page1.xaml
     /// </summary>
-    public partial class Page1 : Page
+    public partial class updateCourse : Page
     {
-        public Page1()
+        public updateCourse()
         {
             InitializeComponent();
         }
 
         private void Button_Save_Click(object sender, RoutedEventArgs e)
         {
-            string name = txtName.Text;
+            /*string name = txtName.Text;
             string id = sid.Text;
             string address = txtAddress.Text;
             string phone = txtPhone.Text;
-            string email = txtEmail.Text;
+            string email = txtEmail.Text;*/
             
 
             //save info in database

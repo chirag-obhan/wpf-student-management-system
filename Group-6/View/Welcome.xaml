@@ -12,8 +12,8 @@
         <TextBlock x:Name="name" HorizontalAlignment="Left" Margin="126,26,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="30" Width="155" Foreground="White" FontSize="24"/>
         <TextBlock x:Name="loggedInAs" HorizontalAlignment="Left" Margin="143,70,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="22" Width="252" Foreground="White" FontSize="14"/>
         <TextBlock HorizontalAlignment="Center" Margin="0,130,0,0" TextWrapping="Wrap" Text="Select one of the below options to perform an operation" VerticalAlignment="Top" Foreground="White" FontSize="24"/>
-        <Button Name="courseBtn" Content="Course Details" HorizontalAlignment="Center" Margin="0,204,0,0" VerticalAlignment="Top" Height="54" Width="168" FontSize="18"/>
-        <Button Name="studentBtn" Content="Student Details" HorizontalAlignment="Center" Margin="0,298,0,0" VerticalAlignment="Top" Height="54" Width="168" FontSize="18"/>
+        <Button Name="courseBtn" Click="courseBtnClicked" Content="Course Details" HorizontalAlignment="Center" Margin="0,204,0,0" VerticalAlignment="Top" Height="54" Width="168" FontSize="18"/>
+        <Button Name="studentBtn" Click="studentBtnClicked" Content="Student Details" HorizontalAlignment="Center" Margin="0,298,0,0" VerticalAlignment="Top" Height="54" Width="168" FontSize="18"/>
 
     </Grid>
 </Window>
