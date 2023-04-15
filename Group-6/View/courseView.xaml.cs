@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,53 +24,37 @@ namespace Group_6
     {
         List<CourseView> courses = new List<CourseView>();
         List<CourseView> search = new List<CourseView>();
+        string sql = "SELECT * FROM DbCourses";
+
 
         public CourseDetails()
         {
             InitializeComponent();
+            FillCourses();
 
-            //Create new students
-
-            CourseView Maths = new CourseView();
-            Maths.courseId = 101;
-            Maths.courseName = "Bob Smith";
-            Maths.courseDescription = "101 Waterloo Ave.";
-            Maths.courseDuration = "123-123-1234";
-            Maths.courseEmail = "bobsmith@gmail.com";
-            CourseDatabase.Items.Add(Maths);
-
-
-
-            CourseView Microprocessor = new CourseView();
-            Microprocessor.courseId = 102;
-            Microprocessor.courseName = "Taylor Swift";
-            Microprocessor.courseDescription = "324 Erb Street";
-            Microprocessor.courseDuration = "123-421-1234";
-            Microprocessor.courseEmail = "Swift@gmail.com";
-            CourseDatabase.Items.Add(Microprocessor);
-
-
-            CourseView OperatingSys = new CourseView();
-            OperatingSys.courseId = 101;
-            OperatingSys.courseName = "Bob Smith";
-            OperatingSys.courseDescription = "101 Waterloo Ave.";
-            OperatingSys.courseDuration = "123-123-1234";
-            OperatingSys.courseEmail = "bobsmith@gmail.com";
-            CourseDatabase.Items.Add(OperatingSys);
-
-
+            //Create new students        
 
         }
 
-        public class CourseView
+        private void FillCourses()
         {
-            public int courseId { get; set; }
-            public string courseName { get; set; }
-            public string courseDescription { get; set; }
-            public string courseDuration { get; set; }
-            public string courseEmail { get; set; }
+            DataSet courses = BackEnd.ReadCourse();
+
+            SqlConnection myConnection = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Project\\Group-6\\Database\\SMM.mdf");
+            myConnection.Open();
+            SqlCommand cmd = new SqlCommand(sql, myConnection);
+            SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+            DataSet cs = new DataSet();
+            adapter.Fill(cs);
+
+            if (cs.Tables[0].Rows.Count > 0)
+            {
+                CourseDatabase.ItemsSource = cs.Tables[0].DefaultView;
+            }
+            myConnection.Close();
         }
-        private void BtnEdit_Click(object sender, RoutedEventArgs e)
+
+            private void BtnEdit_Click(object sender, RoutedEventArgs e)
         {
 
         }

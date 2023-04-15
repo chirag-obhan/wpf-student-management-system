@@ -1,6 +1,13 @@
-﻿using System;
+﻿using Group_6.View;
+using Prism.Commands;
+using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Configuration;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -23,61 +30,44 @@ namespace Group_6
     {
         List<Student> students = new List<Student>();
         List<Student> search = new List<Student>();
+        string sql = "SELECT * FROM studentdb";
 
         public StudentDatabase()
         {
             InitializeComponent();
+            FillDataGrid();
+          
 
             //Create new students
-
-            Student bobSmith = new Student();
-            bobSmith.studentId = 101;
-            bobSmith.fullName = "Bob Smith";
-            bobSmith.address = "101 Waterloo Ave.";
-            bobSmith.phoneNumber = "123-123-1234";
-            bobSmith.email = "bobsmith@gmail.com";
-            StudentDatabaseGrid.Items.Add(bobSmith);
-
-
-
-            Student taylorSwift = new Student();
-            taylorSwift.studentId = 102;
-            taylorSwift.fullName = "Taylor Swift";
-            taylorSwift.address = "324 Erb Street";
-            taylorSwift.phoneNumber = "123-421-1234";
-            taylorSwift.email = "Swift@gmail.com";
-            StudentDatabaseGrid.Items.Add(taylorSwift);
-
-
-            Student michealEarth = new Student();
-            michealEarth.studentId = 102;
-            michealEarth.fullName = "Micheal Earth ";
-            michealEarth.address = "123 University Ave.";
-            michealEarth.phoneNumber = "123-123-4321";
-            michealEarth.email = "Mearth@gmail.com";
-            StudentDatabaseGrid.Items.Add(michealEarth);
-
-
-            Student janeDoe = new Student();
-            janeDoe.studentId = 104;
-            janeDoe.fullName = "Jane Doe";
-            janeDoe.address = "350 Waterloo Ave.";
-            janeDoe.phoneNumber = "321-167-1234";
-            janeDoe.email = "janeDoe@gmail.com";
-            StudentDatabaseGrid.Items.Add(janeDoe);
+          
         }
 
-        public class Student
+
+        private void FillDataGrid()
         {
-            public int studentId { get; set; }
-            public string fullName { get; set; }
-            public string address { get; set; }
-            public string phoneNumber { get; set; }
-            public string email { get; set; }
+            DataSet students = BackEnd.ReadData();
+
+            SqlConnection myConnection = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Project\\Group-6\\Database\\SMM.mdf");
+            myConnection.Open();
+            SqlCommand cmd = new SqlCommand(sql, myConnection);
+            SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+            DataSet ds = new DataSet();
+            adapter.Fill(ds);
+
+            if (ds.Tables[0].Rows.Count > 0)
+            {
+                StudentDatabaseGrid.ItemsSource = ds.Tables[0].DefaultView;
+            }
+            myConnection.Close();
+
         }
+
+
         private void BtnEdit_Click(object sender, RoutedEventArgs e)
         {
-
+            updateStudent update = new updateStudent();
+            this.Content = update;
+           
         }
 
 
@@ -87,10 +77,7 @@ namespace Group_6
 
         }
 
-        private void BtnDelete_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
+      
 
         private void StudentSearch(object sender, TextChangedEventArgs e)
         {
@@ -112,6 +99,17 @@ namespace Group_6
                 }
             }
             StudentDatabaseGrid.ItemsSource = search.ToList();
+        }
+
+       
+
+        
+    }
+
+    internal class gridDataContext
+    {
+        public gridDataContext()
+        {
         }
     }
 }

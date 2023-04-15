@@ -15,6 +15,7 @@
             <ColumnDefinition Width="auto"/>
             <ColumnDefinition Width="auto"/>
             <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="auto"/>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="20"/>
         </Grid.ColumnDefinitions>
@@ -39,7 +40,7 @@
                 Width="150" Margin="-100,10,10,0" FontSize="16" FontWeight="Bold" TextChanged="CourseSearch"/>
         <Button x:Name="Course_AddBtn" Content="Add a New Course" Grid.Column="5"
                 Grid.Row="4" FontSize="16" FontWeight="Bold" Margin="20,10,10,5" Click="Course_Add_btn"/>
-        <DataGrid x:Name="CourseDatabase"  Grid.Column="1" Grid.Row="7" d:ItemsSource="{d:SampleData ItemCount=5}" Grid.ColumnSpan="5" Margin="10,31,10,30">
+        <DataGrid x:Name="CourseDatabase"  Grid.Column="1" Grid.Row="7"  AutoGenerateColumns="False"  HeadersVisibility="Column" ItemsSource="{Binding}" Grid.ColumnSpan="5" Margin="10,31,10,30">
 
             <!-- Font Colour / Style of Headings-->
             <DataGrid.Resources>
@@ -54,10 +55,11 @@
 
             <!-- Colum Header Text & Bindings-->
             <DataGrid.Columns>
+               
                 <DataGridTextColumn Header="Course ID"  Binding="{Binding courseId}" Width="90"/>
                 <DataGridTextColumn Header="Course Name" Binding="{Binding courseName}" Width="150"/>
-                <DataGridTextColumn Header="Description"  Binding="{Binding courseDescription}"  Width="200"/>
-                <DataGridTextColumn Header="Duration" Binding="{Binding courseDuration}"  Width="150"/>
+                <DataGridTextColumn Header="Description"  Binding="{Binding courseDesc}"  Width="200"/>
+                <DataGridTextColumn Header="Duration" Binding="{Binding courseDur}"  Width="150"/>
                 <DataGridTextColumn Header="Course Email" Binding="{Binding courseEmail}"  Width="200"/>
 
                 <DataGridTemplateColumn Header="Edit" Width="100">

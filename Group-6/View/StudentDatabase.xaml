@@ -15,6 +15,7 @@
             <ColumnDefinition Width="auto"/>
             <ColumnDefinition Width="auto"/>
             <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="auto"/>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="20"/>
         </Grid.ColumnDefinitions>
@@ -39,22 +40,26 @@
                 Width="150" Margin="-100,10,10,0" FontSize="16" FontWeight="Bold" TextChanged="StudentSearch"/>
         <Button x:Name="Student_AddBtn" Content="Add a New Student" Grid.Column="5"
                 Grid.Row="4" FontSize="16" FontWeight="Bold" Margin="20,10,10,5" Click="Student_Add_btn"/>
-        <DataGrid x:Name="StudentDatabaseGrid"  Grid.Column="1" Grid.Row="7" d:ItemsSource="{d:SampleData ItemCount=5}" Grid.ColumnSpan="5" Margin="10,31,10,30">
+        <DataGrid x:Name="StudentDatabaseGrid"  BorderThickness="0 1 0 0" AutoGenerateColumns="False" Background="Beige"  Grid.Column="1" Grid.Row="7" HeadersVisibility="Column" ItemsSource="{Binding}" Grid.ColumnSpan="5" Margin="10,31,10,30">
 
             <!-- Font Colour / Style of Headings-->
             <DataGrid.Resources>
-                <Style TargetType="{x:Type DataGridColumnHeader}">
+                <Style TargetType="{x:Type DataGridColumnHeader}" >
                     <Setter Property="Background" Value="White"/>
                     <Setter Property="FontWeight" Value="SemiBold"/>
                     <Setter Property="BorderThickness" Value="0,0,1,2"/>
                     <Setter Property="BorderBrush" Value="Black"/>
+                    <Setter Property="MinHeight" Value="40"/>
+                    <Setter Property="FontSize" Value="15"/>
+
+
 
                 </Style>
             </DataGrid.Resources>
 
             <!-- Colum Header Text & Bindings-->
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Student ID"  Binding="{Binding studentId}" Width="90"/>
+                <DataGridTextColumn Header="Student ID"  Binding="{Binding stringId}" Width="90"/>
                 <DataGridTextColumn Header="Full Name" Binding="{Binding fullName}" Width="150"/>
                 <DataGridTextColumn Header="Address"  Binding="{Binding address}"  Width="200"/>
                 <DataGridTextColumn Header="PhoneNumber" Binding="{Binding phoneNumber}"  Width="150"/>
@@ -72,13 +77,13 @@
                 <DataGridTemplateColumn Header="Delete" Width="100">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <Button Name="btnDelete" Content="DELETE" Click="BtnDelete_Click" />
+                            <Button Name="btnDelete" Content="DELETE" Command="Delete"  />
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
             </DataGrid.Columns>
 
-        </DataGrid>
+        </DataGrid >
 
 
     </Grid>
