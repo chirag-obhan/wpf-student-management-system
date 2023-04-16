@@ -1,4 +1,4 @@
-﻿<Window x:Class="Group_6.View.updateStudent"
+﻿<Window x:Class="Group_6.View.addStudent"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -6,35 +6,35 @@
       xmlns:local="clr-namespace:Group_6.View"
       mc:Ignorable="d" 
       d:DesignHeight="600" d:DesignWidth="800"
-     Title="Edit Student" Height="Auto" Width="Auto" Background="DarkCyan">
+     Title="Add Student" Height="Auto" Width="Auto" Background="DarkCyan">
     <Grid Margin="0,0,0,-65" Height="600">
-        <TextBlock HorizontalAlignment="Center" Margin="0,44,0,0" TextWrapping="Wrap" Text="Edit Student Information" VerticalAlignment="Top" Height="72" Width="760" TextAlignment="Center" FontSize="48" Foreground="White"/>
+        <TextBlock HorizontalAlignment="Center" Margin="0,44,0,0" TextWrapping="Wrap" Text="Add Student Information" VerticalAlignment="Top" Height="72" Width="760" TextAlignment="Center" FontSize="48" Foreground="White"/>
         <Grid HorizontalAlignment="Center" Height="34" Margin="0,160,0,0" VerticalAlignment="Top" Width="416">
-            <TextBox Name="fullname" HorizontalAlignment="Left" Margin="109,0,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="306" Height="27" FontSize="18"/>
+            <TextBox Name="AddSFullName" HorizontalAlignment="Left" Margin="109,0,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="306" Height="27" FontSize="18"/>
             <Label Content="Full Name" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="18" Foreground="White"/>
 
         </Grid>
 
         <Grid HorizontalAlignment="Center" Height="34" Margin="0,210,0,0" VerticalAlignment="Top" Width="416">
-            <TextBox Name="id" HorizontalAlignment="Left" Margin="109,0,0,0" VerticalAlignment="Center" Width="306" Height="27" FontSize="18"/>
+            <TextBox Name="AddSId" HorizontalAlignment="Left" Margin="109,0,0,0" VerticalAlignment="Center" Width="306" Height="27" FontSize="18"/>
             <Label Content="Student ID" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="18" Foreground="White"/>
 
         </Grid>
 
         <Grid HorizontalAlignment="Center" Height="34" Margin="0,260,0,0" VerticalAlignment="Top" Width="416">
-            <TextBox Name="Address" HorizontalAlignment="Left" Margin="109,0,0,0" VerticalAlignment="Center" Width="306" Height="27" FontSize="18"/>
+            <TextBox Name="AddSAddress" HorizontalAlignment="Left" Margin="109,0,0,0" VerticalAlignment="Center" Width="306" Height="27" FontSize="18"/>
             <Label Content="Address" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="18" Foreground="White"/>
 
         </Grid>
 
         <Grid HorizontalAlignment="Center" Height="34" Margin="0,310,0,0" VerticalAlignment="Top" Width="416">
-            <TextBox Name="phoneNumber" HorizontalAlignment="Left" Margin="109,0,0,0" VerticalAlignment="Center" Width="306" Height="27" FontSize="18"/>
+            <TextBox Name="AddSPhoneNumber" HorizontalAlignment="Left" Margin="109,0,0,0" VerticalAlignment="Center" Width="306" Height="27" FontSize="18"/>
             <Label Content="Phone No." HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="18" Foreground="White"/>
 
         </Grid>
 
         <Grid HorizontalAlignment="Center" Height="34" Margin="0,360,0,0" VerticalAlignment="Top" Width="416">
-            <TextBox Name="emailId" HorizontalAlignment="Left" Margin="109,0,0,0" VerticalAlignment="Center" Width="306" Height="27" FontSize="18"/>
+            <TextBox Name="AddSEmailId" HorizontalAlignment="Left" Margin="109,0,0,0" VerticalAlignment="Center" Width="306" Height="27" FontSize="18"/>
             <Label Content="Email" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="18" Foreground="White"/>
 
         </Grid>
@@ -44,8 +44,8 @@
 
 
 
-        <Button Content="Save" HorizontalAlignment="Left" Margin="290,420,0,0" VerticalAlignment="Top" Width="120" Click="btnSaveStudent" Height="39"/>
-        <Button Content="Cancel" HorizontalAlignment="Left" Margin="415,420,0,0" VerticalAlignment="Top" Width="120" Click="btnCancelStudent" Height="39"/>
+        <Button Content="Save" HorizontalAlignment="Left" Margin="290,420,0,0" VerticalAlignment="Top" Width="120" Click="btnSaveAddStudent" Height="39"/>
+        <Button Content="Cancel" HorizontalAlignment="Left" Margin="415,420,0,0" VerticalAlignment="Top" Width="120" Click="btnCancelAddStudent" Height="39"/>
     </Grid>
 
 
