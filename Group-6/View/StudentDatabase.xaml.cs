@@ -1,29 +1,10 @@
 ﻿using Group_6.View;
-using Prism.Commands;
 using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.ComponentModel;
-using System.Configuration;
 using System.Data;
-using System.Data.Common;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Linq.Expressions;
-using System.Net;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Media.TextFormatting;
-using System.Windows.Shapes; 
-using static Group_6.StudentDatabase;
 
 namespace Group_6
 {
@@ -64,21 +45,18 @@ namespace Group_6
             }
             myConnection.Close();
             }
-            catch(Exception)
+            catch (Exception ex)
             {
-
+                MessageBox.Show(ex.Message);
             }
         }
 
 
         private void BtnEdit_Click(object sender, RoutedEventArgs e)
         {
-            updateStudent update = new updateStudent();
 
             try
             {
-
-
                 string con = Properties.Settings.Default.connectionString;
                 SqlConnection myConnection = new SqlConnection(con); 
                 myConnection.Open();
@@ -89,30 +67,30 @@ namespace Group_6
 
                 if (StudentDatabaseGrid.SelectedItem == null)
             {
-                MessageBox.Show("select a row ");
                 return;
             }
 
-            DataRowView row = (DataRowView)StudentDatabaseGrid.SelectedItem;
-            updateStudent updateWindow = new updateStudent();
+                DataRowView row = (DataRowView)StudentDatabaseGrid.SelectedItem;
+                updateStudent updateWindow = new updateStudent();
             {
-
-     
                 updateWindow.fullname.Text = row["fullName"].ToString();
                 updateWindow.id.Text = row["stringId"].ToString();
                 updateWindow.Address.Text = row["address"].ToString();
-                updateWindow.phno.Text = row["phoneNumber"].ToString();
-                updateWindow.email.Text = row["email"].ToString();
-            
+                updateWindow.phoneNumber.Text = row["phoneNumber"].ToString();
+                updateWindow.emailId.Text = row["email"].ToString();
+
                     adapter.Update(ds);
                     myConnection.Close();
-                    this.Content = updateWindow;
+                    //this.Content = updateWindow;
+                    updateWindow.Show();
+                    Close();
 
                 }
 
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                MessageBox.Show(ex.Message);
             }
 
         }
@@ -148,12 +126,12 @@ namespace Group_6
                 myConnection.Close();
 
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-               
+                MessageBox.Show(ex.Message);
             }
 
-           
+
         }
 
     }
