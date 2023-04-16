@@ -47,10 +47,8 @@ namespace Group_6.View
                 {
                     studentDatabase.StudentDatabaseGrid.ItemsSource = studentsDataSet.Tables[0].DefaultView;
                     MessageBox.Show("The data was successfully updated");
-                    //adapter.Update(dataSet, "studentdb");
 
                     studentDatabase.Show();
-                    //Application.Current.Shutdown();
                     Close();
                     connect.Close();
                 }
