@@ -26,10 +26,16 @@ namespace Group_6.View
             InitializeComponent();
         }
 
+
+        private void Window_load(object sender, EventArgs e)
+        {
+            
+
+        }
         private void Button_Save_Click(object sender, RoutedEventArgs e)
         {
             /*string name = txtName.Text;
-            string id = sid.Text;
+            string stid = sid.Text;
             string address = txtAddress.Text;
             string phone = txtPhone.Text;
             string email = txtEmail.Text;*/

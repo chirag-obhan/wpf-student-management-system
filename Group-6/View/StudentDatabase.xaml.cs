@@ -1,12 +1,16 @@
 ﻿using Group_6.View;
 using Prism.Commands;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Configuration;
 using System.Data;
+using System.Data.Common;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,7 +21,8 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+using System.Windows.Media.TextFormatting;
+using System.Windows.Shapes; 
 using static Group_6.StudentDatabase;
 
 namespace Group_6
@@ -31,23 +36,21 @@ namespace Group_6
         List<Student> students = new List<Student>();
         List<Student> search = new List<Student>();
         string sql = "SELECT * FROM studentdb";
-
+        DataTable dt = new DataTable();
+        
+                
         public StudentDatabase()
         {
             InitializeComponent();
             FillDataGrid();
-          
-
-            //Create new students
-          
+                    
         }
-
-
         private void FillDataGrid()
         {
-            DataSet students = BackEnd.ReadData();
+            try
+            {
 
-            SqlConnection myConnection = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Project\\Group-6\\Database\\SMM.mdf");
+            SqlConnection myConnection = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\PROJECT6OLD\\GROUP-6\\DATABASE\\SMM.MDF");
             myConnection.Open();
             SqlCommand cmd = new SqlCommand(sql, myConnection);
             SqlDataAdapter adapter = new SqlDataAdapter(cmd);
@@ -59,15 +62,57 @@ namespace Group_6
                 StudentDatabaseGrid.ItemsSource = ds.Tables[0].DefaultView;
             }
             myConnection.Close();
+            }
+            catch(Exception)
+            {
 
+            }
         }
 
 
         private void BtnEdit_Click(object sender, RoutedEventArgs e)
         {
             updateStudent update = new updateStudent();
-            this.Content = update;
-           
+
+            try
+            {
+
+
+                SqlConnection myConnection = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\PROJECT6OLD\\GROUP-6\\DATABASE\\SMM.MDF");
+                myConnection.Open();
+                SqlCommand cmd = new SqlCommand(sql, myConnection);
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                DataSet ds = new DataSet();
+                adapter.Fill(ds);
+
+                if (StudentDatabaseGrid.SelectedItem == null)
+            {
+                MessageBox.Show("select a row ");
+                return;
+            }
+
+            DataRowView row = (DataRowView)StudentDatabaseGrid.SelectedItem;
+            updateStudent updateWindow = new updateStudent();
+            {
+
+     
+                updateWindow.fullname.Text = row["fullName"].ToString();
+                updateWindow.id.Text = row["stringId"].ToString();
+                updateWindow.Address.Text = row["address"].ToString();
+                updateWindow.phno.Text = row["phoneNumber"].ToString();
+                updateWindow.email.Text = row["email"].ToString();
+            
+                    adapter.Update(ds);
+                    myConnection.Close();
+                    this.Content = updateWindow;
+
+                }
+
+            }
+            catch (Exception)
+            {
+            }
+
         }
 
 
@@ -77,40 +122,38 @@ namespace Group_6
 
         }
 
-      
-
-        private void StudentSearch(object sender, TextChangedEventArgs e)
+        private void searchBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-            // StudentDatabase.Items.Clear();
+            DataSet students = BackEnd.ReadData();
 
-            search.Clear();
-            if (student_Search.Text.Equals(""))
+            try
             {
-                search.AddRange(students);
-            }
-            else
-            {
-                foreach (Student searchStudent in search)
+                SqlConnection myConnection = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\PROJECT6OLD\\GROUP-6\\DATABASE\\SMM.MDF");
+                myConnection.Open();
+                SqlCommand cmd = new SqlCommand(sql, myConnection);
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                adapter.SelectCommand.CommandText = "SELECT * FROM studentdb where fullName like '%" + student_Search.Text + "%'";
+                DataSet ds = new DataSet();
+                adapter.Fill(ds);
+
+                if (ds.Tables[0].Rows.Count > 0)
                 {
-                    if (searchStudent.fullName.Contains(student_Search.Text))
-                    {
-                        search.Add(searchStudent);
-                    }
+                    StudentDatabaseGrid.ItemsSource = ds.Tables[0].DefaultView;
                 }
+
+                adapter.Update(ds);
+                myConnection.Close();
+
             }
-            StudentDatabaseGrid.ItemsSource = search.ToList();
+            catch (Exception)
+            {
+               
+            }
+
+           
         }
 
-       
-
-        
     }
 
-    internal class gridDataContext
-    {
-        public gridDataContext()
-        {
-        }
-    }
+
 }
-

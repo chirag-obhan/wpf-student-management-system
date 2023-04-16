@@ -74,7 +74,7 @@
                 <DataGridTemplateColumn Header="Delete" Width="100">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <Button Name="btnDelete" Content="DELETE" Click="BtnDelete_Click" />
+                            <Button Name="btnDelete" Content="DELETE" Command="Delete" />
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>

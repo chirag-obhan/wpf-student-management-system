@@ -36,11 +36,11 @@
 
         <TextBlock Grid.Column="1" Grid.Row="4"
                    Text="Search By Student Name:" Margin="10" VerticalAlignment="Bottom" FontSize="16" FontWeight="Bold" Foreground="white"/>
-        <TextBox x:Name="student_Search" Grid.Column="2" Grid.Row="4"
-                Width="150" Margin="-100,10,10,0" FontSize="16" FontWeight="Bold" TextChanged="StudentSearch"/>
+        <TextBox x:Name="student_Search" Grid.Column="1" Grid.Row="4"
+                Width="150" Margin="0,10,78,0" FontSize="16" FontWeight="Bold" Grid.ColumnSpan="2" HorizontalAlignment="Right" TextChanged="searchBox_TextChanged"/>
         <Button x:Name="Student_AddBtn" Content="Add a New Student" Grid.Column="5"
                 Grid.Row="4" FontSize="16" FontWeight="Bold" Margin="20,10,10,5" Click="Student_Add_btn"/>
-        <DataGrid x:Name="StudentDatabaseGrid"  BorderThickness="0 1 0 0" AutoGenerateColumns="False" Background="Beige"  Grid.Column="1" Grid.Row="7" HeadersVisibility="Column" ItemsSource="{Binding}" Grid.ColumnSpan="5" Margin="10,31,10,30">
+        <DataGrid x:Name="StudentDatabaseGrid"  BorderThickness="0 1 0 0" AutoGenerateColumns="False" Background="Beige"  Grid.Column="1" Grid.Row="7"  HeadersVisibility="Column" ItemsSource="{Binding Student}" Grid.ColumnSpan="5" Margin="10,31,10,30" >
 
             <!-- Font Colour / Style of Headings-->
             <DataGrid.Resources>

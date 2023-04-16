@@ -112,5 +112,81 @@ namespace Group_6
             }
         }
 
+       public static DataSet InsertStudent(string sqlInsert)
+        {
+            using (SqlConnection myConnection = GetConnection())
+            {
+                if (myConnection == null)
+                {
+                    Console.WriteLine("Cannot connect to the database: {0}", myConnection.State.ToString());
+                    return null;
+                }
+
+                 DataSet students = new DataSet();
+                try
+                {
+                    SqlCommand cmd = new SqlCommand(sqlInsert, myConnection);
+
+                    myConnection.Open();
+                    cmd.ExecuteNonQuery();
+                    myConnection.Close();
+
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(sqlInsert);
+                    Console.WriteLine(ex.ToString());
+                }
+                finally
+                {
+                    if (myConnection != null)
+                    {
+                        myConnection.Close();
+                    }
+                }
+                return students;
+            }
+            
+
+        }
+
+        public static DataSet InsertCourses(string sqlInsert)
+        {
+            using (SqlConnection myConnection = GetConnection())
+            {
+                if (myConnection == null)
+                {
+                    Console.WriteLine("Cannot connect to the database: {0}", myConnection.State.ToString());
+                    return null;
+                }
+
+                DataSet courses = new DataSet();
+                try
+                {
+                    SqlCommand cmd = new SqlCommand(sqlInsert, myConnection);
+
+                    myConnection.Open();
+                    cmd.ExecuteNonQuery();
+                    myConnection.Close();
+
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(sqlInsert);
+                    Console.WriteLine(ex.ToString());
+                }
+                finally
+                {
+                    if (myConnection != null)
+                    {
+                        myConnection.Close();
+                    }
+                }
+                return courses;
+            }
+
+        }
+
     }
+        
 }

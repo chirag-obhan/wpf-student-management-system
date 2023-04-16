@@ -13,6 +13,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Group_6.View;
 
 namespace Group_6
 {
@@ -40,7 +41,8 @@ namespace Group_6
         {
             DataSet courses = BackEnd.ReadCourse();
 
-            SqlConnection myConnection = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Project\\Group-6\\Database\\SMM.mdf");
+
+            SqlConnection myConnection = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\PROJECT6OLD\\GROUP-6\\DATABASE\\SMM.MDF");
             myConnection.Open();
             SqlCommand cmd = new SqlCommand(sql, myConnection);
             SqlDataAdapter adapter = new SqlDataAdapter(cmd);
@@ -55,9 +57,12 @@ namespace Group_6
         }
 
             private void BtnEdit_Click(object sender, RoutedEventArgs e)
-        {
+             {
+            
+    
+             }
 
-        }
+    
 
 
 
@@ -66,31 +71,38 @@ namespace Group_6
 
         }
 
-        private void BtnDelete_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
+  
 
         private void CourseSearch(object sender, TextChangedEventArgs e)
         {
-            // StudentDatabase.Items.Clear();
+            DataSet courses = BackEnd.ReadData();
 
-            search.Clear();
-            if (course_Search.Text.Equals(""))
+            try
             {
-                search.AddRange(courses);
-            }
-            else
-            {
-                foreach (CourseView searchCourse in search)
+                SqlConnection myConnection = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\PROJECT6OLD\\GROUP-6\\DATABASE\\SMM.MDF");
+                myConnection.Open();
+                SqlCommand cmd = new SqlCommand(sql, myConnection);
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                adapter.SelectCommand.CommandText = "SELECT * FROM DbCourses where CourseName like '%" + course_Search.Text + "%'";
+                DataSet ds = new DataSet();
+                adapter.Fill(ds);
+
+                if (ds.Tables[0].Rows.Count > 0)
                 {
-                    if (searchCourse.courseName.Contains(course_Search.Text))
-                    {
-                        search.Add(searchCourse);
-                    }
+                    CourseDatabase.ItemsSource = ds.Tables[0].DefaultView;
                 }
+
+                adapter.Update(ds);
+                myConnection.Close();
+
             }
-            CourseDatabase.ItemsSource = search.ToList();
+            catch (Exception)
+            {
+
+            }
+
+            
+            
         }
     }
 }
