@@ -10,32 +10,32 @@
     <Grid>
         <TextBlock HorizontalAlignment="Center" Margin="0,44,0,0" TextWrapping="Wrap" Text="Edit Course Information" VerticalAlignment="Top" Height="72" Width="760" TextAlignment="Center" FontSize="48" Foreground="White"/>
         <Grid HorizontalAlignment="Center" Height="34" Margin="0,160,0,0" VerticalAlignment="Top" Width="416">
-            <TextBox Name="CourseName" HorizontalAlignment="Left" Margin="109,0,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="306" Height="27" FontSize="18"/>
+            <TextBox Name="CourseName" HorizontalAlignment="Left" Margin="135,0,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="306" Height="27" FontSize="18"/>
             <Label Content="Course Name" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="18" Foreground="White"/>
 
         </Grid>
 
         <Grid HorizontalAlignment="Center" Height="34" Margin="0,210,0,0" VerticalAlignment="Top" Width="416">
-            <TextBox Name="cid" HorizontalAlignment="Left" Margin="109,0,0,0" VerticalAlignment="Center" Width="306" Height="27" FontSize="18"/>
+            <TextBox Name="cid" HorizontalAlignment="Left" Margin="135,0,0,0" VerticalAlignment="Center" Width="306" Height="27" FontSize="18"/>
             <Label Content="Course ID" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="18" Foreground="White"/>
 
         </Grid>
 
         <Grid HorizontalAlignment="Center" Height="34" Margin="0,260,0,0" VerticalAlignment="Top" Width="416">
-            <TextBox Name="desc" HorizontalAlignment="Left" Margin="109,0,0,0" VerticalAlignment="Center" Width="306" Height="27" FontSize="18"/>
+            <TextBox Name="desc" HorizontalAlignment="Left" Margin="135,0,0,0" VerticalAlignment="Center" Width="306" Height="27" FontSize="18"/>
             <Label Content="Description" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="18" Foreground="White"/>
 
         </Grid>
 
         <Grid HorizontalAlignment="Center" Height="34" Margin="0,310,0,0" VerticalAlignment="Top" Width="416">
-            <TextBox Name="duration" HorizontalAlignment="Left" Margin="109,0,0,0" VerticalAlignment="Center" Width="306" Height="27" FontSize="18"/>
+            <TextBox Name="duration" HorizontalAlignment="Left" Margin="135,0,0,0" VerticalAlignment="Center" Width="306" Height="27" FontSize="18"/>
             <Label Content="Duration" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="18" Foreground="White"/>
 
         </Grid>
 
         <Grid HorizontalAlignment="Center" Height="34" Margin="0,360,0,0" VerticalAlignment="Top" Width="416">
-            <TextBox Name="Coursemail" HorizontalAlignment="Left" Margin="109,0,0,0" VerticalAlignment="Center" Width="306" Height="27" FontSize="18"/>
-            <Label Content="Course Email" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="18" Foreground="White"/>
+            <TextBox Name="Coursemail" HorizontalAlignment="Left" Margin="135,0,0,0" VerticalAlignment="Center" Width="306" Height="27" FontSize="18"/>
+            <Label Content="Course Email"  HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="18" Foreground="White"/>
 
         </Grid>
 

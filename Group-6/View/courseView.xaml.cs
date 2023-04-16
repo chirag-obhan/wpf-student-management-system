@@ -54,17 +54,51 @@ namespace Group_6
                 CourseDatabase.ItemsSource = cs.Tables[0].DefaultView;
             }
             myConnection.Close();
+
         }
 
-            private void BtnEdit_Click(object sender, RoutedEventArgs e)
-             {
-            
-    
-             }
+         private void BtnEdit_Click(object sender, RoutedEventArgs e)
+         {
+
+            updateCourse update = new updateCourse();
+
+            try
+            {
+                SqlConnection myConnection = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\PROJECT6OLD\\GROUP-6\\DATABASE\\SMM.MDF");
+                myConnection.Open();
+                SqlCommand cmd = new SqlCommand(sql, myConnection);
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                DataSet ds = new DataSet();
+                adapter.Fill(ds);
+
+                if (CourseDatabase.SelectedItem == null)
+                {
+                    MessageBox.Show("select a row ");
+                    return;
+                }
+
+                DataRowView row = (DataRowView)CourseDatabase.SelectedItem;
+                updateCourse updateWindow = new updateCourse();
+
+                updateWindow.CourseName.Text = row["courseName"].ToString();
+                updateWindow.cid.Text = row["courseId"].ToString();
+                updateWindow.desc.Text = row["courseDesc"].ToString();
+                updateWindow.duration.Text = row["courseDur"].ToString();
+                updateWindow.Coursemail.Text = row["courseEmail"].ToString();
+
+
+                adapter.Update(ds);
+                myConnection.Close();
+                this.Content = updateWindow;
+            }
+            catch (Exception)
+            {
+
+            }
+
+         }
 
     
-
-
 
         private void Course_Add_btn(object sender, RoutedEventArgs e)
         {
