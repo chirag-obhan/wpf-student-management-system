@@ -25,8 +25,8 @@ namespace Group_6.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Project\\Group-6\\Database\\S" +
-            "MM.mdf;Integrated Security=True")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\"C:\\College Projects\\Group-6\\" +
+            "Group-6\\Database\\SMM.mdf\";Integrated Security=True")]
         public string connectionString {
             get {
                 return ((string)(this["connectionString"]));

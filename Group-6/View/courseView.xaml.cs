@@ -41,8 +41,8 @@ namespace Group_6
         {
             DataSet courses = BackEnd.ReadCourse();
 
-
-            SqlConnection myConnection = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\PROJECT6OLD\\GROUP-6\\DATABASE\\SMM.MDF");
+            string con = Properties.Settings.Default.connectionString;
+            SqlConnection myConnection = new SqlConnection(con);
             myConnection.Open();
             SqlCommand cmd = new SqlCommand(sql, myConnection);
             SqlDataAdapter adapter = new SqlDataAdapter(cmd);
