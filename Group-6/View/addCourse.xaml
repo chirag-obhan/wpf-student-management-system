@@ -1,4 +1,4 @@
-﻿<Page x:Class="Group_6.View.addCourse"
+﻿<Window x:Class="Group_6.View.addCourse"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -51,4 +51,4 @@
 
 
 
-</Page>
+</Window>
