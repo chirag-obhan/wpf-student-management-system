@@ -44,8 +44,8 @@
 
 
 
-        <Button Content="Save" HorizontalAlignment="Left" Margin="290,420,0,0" VerticalAlignment="Top" Width="120" Click="btnSaveStudent" Height="39"/>
-        <Button Content="Cancel" HorizontalAlignment="Left" Margin="415,420,0,0" VerticalAlignment="Top" Width="120" Click="btnCancelStudent" Height="39"/>
+        <Button Content="Save" HorizontalAlignment="Left" Margin="313,420,0,0" VerticalAlignment="Top" Width="120" Click="btnSaveStudent" Height="40"/>
+        <Button Content="Cancel" HorizontalAlignment="Left" Margin="484,419,0,0" VerticalAlignment="Top" Width="120" Click="btnCancelStudent" Height="39"/>
     </Grid>
 
 

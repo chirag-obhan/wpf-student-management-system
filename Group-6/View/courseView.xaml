@@ -40,7 +40,7 @@
                 Width="150" Margin="-100,10,10,0" FontSize="16" FontWeight="Bold" TextChanged="CourseSearch"/>
         <Button x:Name="Course_AddBtn" Content="Add a New Course" Grid.Column="5"
                 Grid.Row="4" FontSize="16" FontWeight="Bold" Margin="20,10,10,5" Click="Course_Add_btn"/>
-        <DataGrid x:Name="CourseDatabase"  Grid.Column="1" Grid.Row="7"  AutoGenerateColumns="False"  HeadersVisibility="Column" ItemsSource="{Binding}" Grid.ColumnSpan="5" Margin="10,31,10,30">
+        <DataGrid x:Name="CourseDatabase"  Grid.Column="1" Grid.Row="7"  AutoGenerateColumns="False"  HeadersVisibility="Column" ItemsSource="{Binding Course}" Grid.ColumnSpan="5" Margin="10,31,10,30">
 
             <!-- Font Colour / Style of Headings-->
             <DataGrid.Resources>
