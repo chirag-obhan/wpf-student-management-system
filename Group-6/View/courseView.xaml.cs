@@ -17,6 +17,7 @@ namespace Group_6
         List<CourseView> courses = new List<CourseView>();
         List<CourseView> search = new List<CourseView>();
         string sql = "SELECT * FROM DbCourses";
+        DataTable dt = new DataTable();
 
 
         public CourseDetails()
@@ -27,6 +28,7 @@ namespace Group_6
             //Create new students        
 
         }
+
 
         private void FillCourses()
         {
@@ -50,8 +52,6 @@ namespace Group_6
 
          private void BtnEdit_Click(object sender, RoutedEventArgs e)
          {
-
-            updateCourse update = new updateCourse();
 
             try
             {
@@ -81,7 +81,8 @@ namespace Group_6
 
                 adapter.Update(ds);
                 myConnection.Close();
-                this.Content = updateWindow;
+                updateWindow.Show();
+                Close();
             }
             catch (Exception ex) { MessageBox.Show(ex.Message); }
 
@@ -91,7 +92,10 @@ namespace Group_6
 
         private void Course_Add_btn(object sender, RoutedEventArgs e)
         {
+            addCourse AddCourse = new addCourse();
 
+            AddCourse.Show();
+           
         }
 
   
@@ -125,5 +129,41 @@ namespace Group_6
             
             
         }
+
+        private void btnDelete(object sender, RoutedEventArgs e)
+        {
+            addCourse AddCourse = new addCourse();
+
+            DataSet courses = BackEnd.ReadData();
+            try
+            {
+                string con = Properties.Settings.Default.connectionString;
+                SqlConnection myConnection = new SqlConnection(con);
+                myConnection.Open();
+                DataRowView row = (DataRowView)CourseDatabase.SelectedItem;
+                string cid = row["courseId"].ToString();
+                int cintid = int.Parse(cid);
+                string cmdstring = "DELETE DbCourses WHERE courseId = " + cintid;
+                SqlCommand cmd = new SqlCommand(cmdstring, myConnection);
+
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                DataSet ds = new DataSet();
+                adapter.Fill(ds);
+
+                MessageBox.Show("Course has been deleted");
+                cmd.ExecuteNonQuery();
+
+                AddCourse.Show();
+                Close();
+                myConnection.Close();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
     }
 }
+

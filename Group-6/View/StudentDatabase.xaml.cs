@@ -99,7 +99,8 @@ namespace Group_6
 
         private void Student_Add_btn(object sender, RoutedEventArgs e)
         {
-
+            addStudent AddStudents = new addStudent();
+            AddStudents.Show();
         }
 
         private void searchBox_TextChanged(object sender, TextChangedEventArgs e)

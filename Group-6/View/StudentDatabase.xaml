@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Group_6"
         mc:Ignorable="d" FontSize="14" FontFamily="Bookman Old Style"
-        Title="StudentDatabase" Height="450" Width="1030"  Background="DarkCyan">
+        Title="StudentDatabase" Height="Auto" Width="1110"  Background="DarkCyan">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="20"/>
@@ -16,8 +16,7 @@
             <ColumnDefinition Width="auto"/>
             <ColumnDefinition Width="auto"/>
             <ColumnDefinition Width="auto"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="5"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="20"/>
@@ -37,10 +36,10 @@
         <TextBlock Grid.Column="1" Grid.Row="4"
                    Text="Search By Student Name:" Margin="10" VerticalAlignment="Bottom" FontSize="16" FontWeight="Bold" Foreground="white"/>
         <TextBox x:Name="student_Search" Grid.Column="1" Grid.Row="4"
-                Width="150" Margin="0,10,78,0" FontSize="16" FontWeight="Bold" Grid.ColumnSpan="2" HorizontalAlignment="Right" TextChanged="searchBox_TextChanged"/>
+                Width="150" Margin="10,10,78,0" FontSize="16" FontWeight="Bold" Grid.ColumnSpan="2" HorizontalAlignment="Right" TextChanged="searchBox_TextChanged"/>
         <Button x:Name="Student_AddBtn" Content="Add a New Student" Grid.Column="5"
                 Grid.Row="4" FontSize="16" FontWeight="Bold" Margin="20,10,10,5" Click="Student_Add_btn"/>
-        <DataGrid x:Name="StudentDatabaseGrid"  BorderThickness="0 1 0 0" AutoGenerateColumns="False" Background="Beige"  Grid.Column="1" Grid.Row="7"  HeadersVisibility="Column" ItemsSource="{Binding Student}" Grid.ColumnSpan="5" Margin="10,31,10,30" >
+        <DataGrid x:Name="StudentDatabaseGrid"  BorderThickness="0 1 0 0" AutoGenerateColumns="False" Background="Lavender" VerticalAlignment="Center" HorizontalAlignment="Center"  Grid.Column="1" Grid.Row="7"  HeadersVisibility="Column" ItemsSource="{Binding Student}" Grid.ColumnSpan="5" Margin="10,31,10,30" >
 
             <!-- Font Colour / Style of Headings-->
             <DataGrid.Resources>
@@ -50,7 +49,7 @@
                     <Setter Property="BorderThickness" Value="0,0,1,2"/>
                     <Setter Property="BorderBrush" Value="Black"/>
                     <Setter Property="MinHeight" Value="40"/>
-                    <Setter Property="FontSize" Value="15"/>
+                    <Setter Property="FontSize" Value="18"/>
 
 
 
@@ -59,7 +58,7 @@
 
             <!-- Colum Header Text & Bindings-->
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Student ID"  Binding="{Binding stringId}" Width="90"/>
+                <DataGridTextColumn Header="Student ID"  Binding="{Binding stringId}" Width="120"/>
                 <DataGridTextColumn Header="Full Name" Binding="{Binding fullName}" Width="150"/>
                 <DataGridTextColumn Header="Address"  Binding="{Binding address}"  Width="200"/>
                 <DataGridTextColumn Header="PhoneNumber" Binding="{Binding phoneNumber}"  Width="150"/>
