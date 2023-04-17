@@ -23,9 +23,7 @@ namespace Group_6
         public CourseDetails()
         {
             InitializeComponent();
-            FillCourses();
-
-            //Create new students        
+            FillCourses();        
 
         }
 
@@ -72,11 +70,11 @@ namespace Group_6
                 DataRowView row = (DataRowView)CourseDatabase.SelectedItem;
                 updateCourse updateWindow = new updateCourse();
 
-                updateWindow.CourseName.Text = row["courseName"].ToString();
-                updateWindow.cid.Text = row["courseId"].ToString();
-                updateWindow.desc.Text = row["courseDesc"].ToString();
-                updateWindow.duration.Text = row["courseDur"].ToString();
-                updateWindow.Coursemail.Text = row["courseEmail"].ToString();
+                updateWindow.editCName.Text = row["courseName"].ToString();
+                updateWindow.editCId.Text = row["courseId"].ToString();
+                updateWindow.editCDesc.Text = row["courseDesc"].ToString();
+                updateWindow.editCDuration.Text = row["courseDur"].ToString();
+                updateWindow.editCoursEmail.Text = row["courseEmail"].ToString();
 
 
                 adapter.Update(ds);

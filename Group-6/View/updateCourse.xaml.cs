@@ -16,11 +16,12 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Xml.Linq;
+using System.Text.RegularExpressions;
 
 namespace Group_6.View
 {
     /// <summary>
-    /// Interaction logic for Page1.xaml
+    /// Interaction logic for updateCourse.xaml
     /// </summary>
     public partial class updateCourse : Window
     {
@@ -33,62 +34,21 @@ namespace Group_6.View
         CourseDetails details = new CourseDetails();
         private void Button_Save_Click(object sender, RoutedEventArgs e)
         {
-            try
-            {
-                string name = CourseName.Text;
-                string coId = cid.Text;
-                string description = desc.Text;
-                string durations = duration.Text;
-                string email = Coursemail.Text;
-
-                string con = Properties.Settings.Default.connectionString;
-                SqlConnection connect = new SqlConnection(con);
-                connect.Open();
-                SqlCommand cmd = new SqlCommand("UPDATE DbCourses SET courseName = '" +name + "',courseDesc = '" + description+ "', courseDur = '" + durations + "',courseEmail = '" + email +   "'Where courseId = '" + coId + "'", connect);
-                cmd.CommandType = CommandType.Text;
-                SqlDataAdapter adapter = new SqlDataAdapter();
-                adapter.SelectCommand = cmd;
-                DataSet dataSet = new DataSet();
-                adapter.Fill(dataSet);
-
-                SqlCommand fetchCourse = new SqlCommand("SELECT * FROM DbCourses", connect);
-                fetchCourse.CommandType = CommandType.Text;
-                SqlDataAdapter fetchCourseAdapter = new SqlDataAdapter();
-                fetchCourseAdapter.SelectCommand = fetchCourse;
-                DataSet courseDataSet = new DataSet();
-                fetchCourseAdapter.Fill(courseDataSet);
-
-                if (courseDataSet.Tables[0].Rows.Count > 0)
-                {
-                    details.CourseDatabase.ItemsSource = courseDataSet.Tables[0].DefaultView;
-                    MessageBox.Show("The data was successfully updated");
-
-                    details.Show();
-                    Close();
-                    connect.Close();
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-
-        }
-
+            /*string name = txtName.Text;
+            string id = sid.Text;
+            string address = txtAddress.Text;
+            string phone = txtPhone.Text;
+            string email = txtEmail.Text;*/
+            
 
         private void Window_load(object sender, EventArgs e)
         {
 
+            NavigationService.GoBack();
         }
-        private void btnCancelStudent(object sender, RoutedEventArgs e)
+        private void Button_Cancel_Click (object sender, RoutedEventArgs e)
         {
-            details.Show();
-            Close();
-        }
-
-        private void Button_Cancel_Click(object sender, RoutedEventArgs e)
-        {
-            //NavigationService.GoBack();
+            NavigationService.GoBack();
         }
     }
       
