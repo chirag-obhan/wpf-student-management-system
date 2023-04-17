@@ -46,6 +46,8 @@
 
         <Button Content="Save" HorizontalAlignment="Left" Margin="322,415,0,0" VerticalAlignment="Top" Width="120" Click="btnSaveCourseEdit" Height="35"/>
         <Button Content="Cancel" HorizontalAlignment="Left" Margin="488,415,0,0" VerticalAlignment="Top" Width="120" Click="btnCancelCourseEdit" Height="35"/>
+        <TextBlock HorizontalAlignment="Center" Margin="0,396,0,0" TextWrapping="Wrap" OpacityMask="Crimson" x:Name="Errormessage" VerticalAlignment="Top" Foreground="#FFFF5959" FontSize="14" Width="652" TextAlignment="Center"/>
+
     </Grid>
 
 
