@@ -17,7 +17,7 @@ namespace Group_6
         List<Student> students = new List<Student>();
         List<Student> search = new List<Student>();
         string sql = "SELECT * FROM studentdb";
-        DataTable dt = new DataTable();
+      
         
                 
         public StudentDatabase()
@@ -26,6 +26,7 @@ namespace Group_6
             FillDataGrid();
                     
         }
+     
         private void FillDataGrid()
         {
             try
@@ -135,6 +136,42 @@ namespace Group_6
 
         }
 
+        private void btnDelete(object sender, RoutedEventArgs e)
+        {
+            addStudent AddStudents = new addStudent();
+
+            DataSet students = BackEnd.ReadData();
+            try
+            {
+                StudentDatabase studentDatabase = new StudentDatabase();
+                string con = Properties.Settings.Default.connectionString;
+                SqlConnection myConnection = new SqlConnection(con);
+                myConnection.Open();
+                DataRowView row = (DataRowView)StudentDatabaseGrid.SelectedItem;
+                string id = row["stringId"].ToString();
+                int sintid = int.Parse(id);
+                string cmdstring = "DELETE studentdb WHERE stringId = " + sintid;
+                SqlCommand cmd = new SqlCommand(cmdstring, myConnection);
+
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                DataSet dataStudent = new DataSet();
+                adapter.Fill(dataStudent);
+                cmd.ExecuteNonQuery();
+
+                    MessageBox.Show("Student has been deleted");
+
+                    AddStudents.Show();
+                    Close();
+                    myConnection.Close();          
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+
+        }
     }
 
 

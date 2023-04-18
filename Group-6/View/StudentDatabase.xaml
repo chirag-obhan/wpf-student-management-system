@@ -39,7 +39,7 @@
                 Width="150" Margin="10,10,78,0" FontSize="16" FontWeight="Bold" Grid.ColumnSpan="2" HorizontalAlignment="Right" TextChanged="searchBox_TextChanged"/>
         <Button x:Name="Student_AddBtn" Content="Add a New Student" Grid.Column="5"
                 Grid.Row="4" FontSize="16" FontWeight="Bold" Margin="20,10,10,5" Click="Student_Add_btn"/>
-        <DataGrid x:Name="StudentDatabaseGrid"  BorderThickness="0 1 0 0" AutoGenerateColumns="False" Background="Lavender" VerticalAlignment="Center" HorizontalAlignment="Center"  Grid.Column="1" Grid.Row="7"  HeadersVisibility="Column" ItemsSource="{Binding Student}" Grid.ColumnSpan="5" Margin="10,31,10,30" >
+        <DataGrid x:Name="StudentDatabaseGrid" AlternatingRowBackground="LightBlue" BorderThickness="0 1 0 0" AutoGenerateColumns="False" Background="Lavender" VerticalAlignment="Center" HorizontalAlignment="Center"  Grid.Column="1" Grid.Row="7"  HeadersVisibility="Column" ItemsSource="{Binding Student}" Grid.ColumnSpan="5" Margin="10,31,10,30" >
 
             <!-- Font Colour / Style of Headings-->
             <DataGrid.Resources>
@@ -76,7 +76,7 @@
                 <DataGridTemplateColumn Header="Delete" Width="100">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <Button Name="btnDelete" Content="DELETE" Command="Delete"  />
+                            <Button Name="btnDelete" Content="DELETE" Background="Red" Click="btnDelete" />
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
